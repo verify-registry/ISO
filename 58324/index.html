@@ -10,111 +10,180 @@
     <style>
         body { 
             font-family: 'Inter', sans-serif; 
-            background-color: #f8fafc;
+            background-color: #e2e8f0; /* خلفية أغمق سنة عشان الـ 3D يظهر */
         }
         .font-heading { 
             font-family: 'Montserrat', sans-serif; 
         }
-        .bg-premium-gradient { 
-            background: linear-gradient(135deg, #0a2e22 0%, #15503c 100%); 
+        /* خلفية فخمة جداً 3D */
+        .bg-premium-3d { 
+            background: radial-gradient(circle at top left, #124d38 0%, #082117 100%);
+            box-shadow: inset -10px 0 30px rgba(0,0,0,0.5); /* ضل داخلي بيدي عمق */
         }
+        
+        /* كروت 3D بارزة */
+        .card-3d {
+            background: linear-gradient(145deg, #ffffff, #f3f4f6);
+            border-top: 1px solid rgba(255,255,255,1);
+            border-left: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 
+                8px 8px 16px rgba(163, 177, 198, 0.4), 
+                -8px -8px 16px rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+        }
+        .card-3d:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                12px 12px 20px rgba(163, 177, 198, 0.5), 
+                -12px -12px 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* كارت البيانات الموحد */
+        .ticket-3d {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.02);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* تأثير إزاز فخم 3D */
+        .glass-3d {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translate3d(0, 20px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
         }
         .animate-fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
+            animation: fadeInUp 0.8s ease-out forwards;
         }
     </style>
 </head>
-<body class="antialiased w-full min-h-screen lg:h-screen lg:overflow-hidden flex flex-col lg:flex-row">
+<body class="antialiased w-full min-h-screen lg:h-screen lg:overflow-hidden flex flex-col lg:flex-row perspective-1000">
 
-    <div class="relative w-full lg:w-5/12 bg-premium-gradient flex flex-col justify-between p-6 sm:p-8 lg:p-12 shadow-2xl z-10 lg:h-full">
+    <div class="relative w-full lg:w-5/12 bg-premium-3d flex flex-col justify-between p-6 sm:p-8 lg:p-12 z-20 shadow-[20px_0_50px_rgba(0,0,0,0.3)] lg:h-full">
         
-        <img src="https://verify-registry.github.io/ISO/4.png" alt="Watermark" class="absolute -right-16 top-1/4 w-[130%] opacity-[0.05] transform -rotate-12 pointer-events-none mix-blend-overlay">
+        <img src="https://verify-registry.github.io/ISO/4.png" alt="Watermark" class="absolute -right-16 top-1/4 w-[130%] opacity-[0.04] transform -rotate-12 pointer-events-none mix-blend-overlay">
 
-        <div class="relative z-10 flex items-center gap-3">
-            <svg class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="m9 11 2 2 4-4"/>
-            </svg>
+        <div class="relative z-10 flex items-center gap-3 animate-fade-in">
+            <div class="p-2 rounded-xl glass-3d">
+                <svg class="w-6 h-6 text-[#d4af37]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 11 2 2 4-4"/>
+                </svg>
+            </div>
             <div>
-                <span class="font-heading text-base font-bold tracking-wider text-white block uppercase">Global Registry</span>
-                <span class="text-[10px] text-emerald-200/60 block tracking-widest">SECURE CREDENTIAL SERVICES</span>
+                <span class="font-heading text-base font-bold tracking-widest text-white block uppercase" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Global Registry</span>
+                <span class="text-[9px] text-[#d4af37] block tracking-[0.2em] font-bold">SECURE CREDENTIAL SERVICES</span>
             </div>
         </div>
 
-        <div class="relative z-10 my-10 lg:my-0">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest backdrop-blur-md mb-4 sm:mb-5 shadow-lg shadow-emerald-900/20">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Verified & Active
+        <div class="relative z-10 my-10 lg:my-0 animate-float">
+            <div class="inline-flex items-center gap-2 px-5 py-2.5 glass-3d rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-300 mb-6 border-t border-white/20">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399] animate-pulse"></span>
+                Verified & Active Record
             </div>
             
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-heading text-white leading-tight mb-2 sm:mb-3">
-                ISO 45001<span class="text-emerald-400">:</span>2018
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400 leading-tight mb-2 drop-shadow-lg">
+                ISO 45001<span class="text-[#d4af37] drop-shadow-md">:</span>2018
             </h1>
-            <p class="text-base sm:text-lg lg:text-xl text-emerald-100/90 font-light tracking-wide">
+            <p class="text-base sm:text-lg lg:text-2xl text-emerald-100/90 font-medium tracking-wide drop-shadow-md">
                 Lead Auditor Certification
             </p>
-            <p class="text-[11px] sm:text-xs text-emerald-200/60 mt-2 sm:mt-3 max-w-sm leading-relaxed">
+            <div class="w-12 h-1 bg-[#d4af37] rounded-full mt-5 mb-4 opacity-80 shadow-[0_2px_10px_rgba(212,175,55,0.5)]"></div>
+            <p class="text-[11px] sm:text-xs text-gray-300/80 max-w-sm leading-relaxed">
                 Occupational Health and Safety Management Systems (OHSMS)
             </p>
         </div>
 
-        <div class="relative z-10 flex items-center gap-2 text-emerald-400/50 text-[9px] sm:text-[10px] tracking-widest uppercase font-bold">
+        <div class="relative z-10 flex items-center gap-2 text-white/40 text-[9px] sm:text-[10px] tracking-widest uppercase font-bold animate-fade-in" style="animation-delay: 0.3s;">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             256-bit SSL Encrypted Record
         </div>
     </div>
 
-    <div class="w-full lg:w-7/12 bg-[#f4f7f6] p-5 sm:p-8 lg:p-10 flex flex-col justify-center lg:h-full">
+    <div class="w-full lg:w-7/12 bg-[#e2e8f0] p-4 sm:p-8 lg:p-12 flex flex-col justify-center lg:h-full relative overflow-hidden">
         
-        <div class="max-w-2xl w-full mx-auto flex flex-col justify-center h-full animate-fade-in">
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-white/40 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-2xl w-full mx-auto flex flex-col justify-center h-full relative z-10 animate-fade-in" style="animation-delay: 0.2s;">
             
-            <h2 class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-2 mb-5">
+            <h2 class="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest pb-3 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-sm bg-[#124d38]"></span>
                 Authentication Details
             </h2>
 
-            <div class="mb-5 lg:mb-6 px-1">
-                <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mb-1">Candidate Full Name</label>
-                <div class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight">Ahmed Wageh Ibrahim Elgabaly</div>
+            <div class="card-3d rounded-2xl p-5 lg:p-6 mb-6">
+                <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mb-2">Candidate Full Name</label>
+                <div class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#082117] tracking-tight drop-shadow-sm">
+                    Ahmed Wageh Ibrahim Elgabaly
+                </div>
             </div>
 
-            <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6 sm:mb-8">
+            <div class="ticket-3d mb-8 border border-white/60">
                 
-                <div class="p-4 sm:p-5 border-b border-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Certificate No.</label>
-                    <div class="text-sm sm:text-base font-mono font-bold text-[#114232] bg-emerald-50 px-2 sm:px-3 py-1 rounded inline-block text-center">ISO45001-LA-2026-58324</div>
+                <div class="p-5 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 relative">
+                    <div class="absolute bottom-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+                    
+                    <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold flex items-center gap-2">
+                        <svg class="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Certificate No.
+                    </label>
+                    <div class="text-sm sm:text-base font-mono font-bold text-emerald-900 bg-emerald-50/80 px-3 py-1.5 rounded-md shadow-inner border border-emerald-100">
+                        ISO45001-LA-2026-58324
+                    </div>
                 </div>
                 
-                <div class="flex flex-row border-b border-gray-50">
-                    <div class="flex-1 p-4 sm:p-5 border-r border-gray-50">
+                <div class="flex flex-row bg-white relative">
+                    <div class="absolute bottom-0 left-5 right-5 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+                    
+                    <div class="flex-1 p-5 border-r border-gray-100">
                         <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mb-1">Issue Date</label>
-                        <div class="text-sm sm:text-base font-bold text-gray-900">05 May 2026</div>
+                        <div class="text-sm sm:text-base font-bold text-gray-800">05 May 2026</div>
                     </div>
-                    <div class="flex-1 p-4 sm:p-5">
+                    <div class="flex-1 p-5">
                         <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mb-1">Duration</label>
-                        <div class="text-sm sm:text-base font-bold text-gray-900">40 Hours (5 Days)</div>
+                        <div class="text-sm sm:text-base font-bold text-gray-800">40 Hours (5 Days)</div>
                     </div>
                 </div>
 
-                <div class="p-4 sm:p-5 bg-gray-50/50">
+                <div class="p-5 bg-gradient-to-br from-gray-50 to-gray-100">
                     <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mb-1">Training Provider</label>
-                    <div class="text-sm sm:text-base font-bold text-gray-900">International Safety Training Academy</div>
+                    <div class="text-sm sm:text-base font-bold text-[#124d38]">International Safety Training Academy</div>
                 </div>
 
             </div>
 
-            <div class="pt-4 lg:pt-5 border-t border-gray-200">
-                <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mb-3 sm:mb-4 text-center lg:text-left">Accredited & Recognized By</label>
-                <div class="flex items-center justify-center lg:justify-start gap-4 sm:gap-6">
-                    <img src="https://verify-registry.github.io/ISO/2.png" class="h-8 sm:h-10 lg:h-12 object-contain hover:scale-105 transition-transform duration-300" alt="CQI IRCA">
-                    <img src="https://verify-registry.github.io/ISO/1.png" class="h-8 sm:h-10 lg:h-12 object-contain hover:scale-105 transition-transform duration-300" alt="ISO">
-                    <img src="https://verify-registry.github.io/ISO/3.png" class="h-8 sm:h-10 lg:h-12 object-contain hover:scale-105 transition-transform duration-300" alt="SNR">
+            <div class="pt-2">
+                <label class="text-[10px] uppercase tracking-widest text-gray-400 font-bold block mb-4 text-center lg:text-left">Accredited & Recognized By</label>
+                <div class="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 bg-white/50 p-4 rounded-2xl shadow-inner border border-white/60">
+                    <div class="bg-white p-2 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                        <img src="https://verify-registry.github.io/ISO/2.png" class="h-8 sm:h-10 object-contain" alt="CQI IRCA">
+                    </div>
+                    <div class="bg-white p-2 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                        <img src="https://verify-registry.github.io/ISO/1.png" class="h-8 sm:h-10 object-contain" alt="ISO">
+                    </div>
+                    <div class="bg-white p-2 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                        <img src="https://verify-registry.github.io/ISO/3.png" class="h-8 sm:h-10 object-contain" alt="SNR">
+                    </div>
                 </div>
             </div>
 
-            <div class="text-center lg:text-left pt-5 sm:pt-6 text-[9px] sm:text-[10px] text-gray-400">
+            <div class="text-center lg:text-left pt-6 text-[9px] sm:text-[10px] text-gray-400 font-medium">
                 &copy; 2026 Global Verification Directory. All Rights Reserved.
             </div>
 
