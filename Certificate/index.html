@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Verification Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .brand-text {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #114232 0%, #1d5c47 100%);
+        }
+        .status-badge {
+            background-color: #e6f4ea;
+            color: #137333;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
 
+    <header class="w-full bg-white border-b border-gray-200 py-4 px-6 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <svg class="w-10 h-10 text-[#114232]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 11 2 2 4-4"/>
+                </svg>
+                <div>
+                    <span class="brand-text text-lg font-bold tracking-wider text-gray-900 block uppercase">Global Verification</span>
+                    <span class="text-xs text-gray-500 block tracking-widest">SECURE CREDENTIAL SERVICES</span>
+                </div>
+            </div>
+            <div class="text-xs text-gray-400 flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Secure SSL Encrypted Connection
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4 md:p-8">
+        <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+            
+            <div class="accent-gradient p-6 md:p-8 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-emerald-300 block mb-1">Credential Status</span>
+                    <h1 class="brand-text text-xl md:text-2xl font-bold tracking-tight">Official Certification Verification</h1>
+                </div>
+                <div class="flex items-center gap-2.5 bg-white text-gray-900 px-5 py-2.5 rounded-xl shadow-lg font-semibold text-sm">
+                    <span class="w-5 h-5 flex items-center justify-center rounded-full bg-emerald-600 text-white text-xs">✓</span>
+                    <span class="text-[#114232] font-bold tracking-wide">VERIFIED & ACTIVE</span>
+                </div>
+            </div>
+
+            <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 border-b border-gray-100">
+                
+                <div class="space-y-6">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 border-b pb-2">Candidate Details</h2>
+                    
+                    <div>
+                        <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Full Name</label>
+                        <p class="text-lg font-bold text-gray-900 tracking-tight">Ahmed Wageh Ibrahim Elgabaly</p>
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Certification Title</label>
+                        <p class="text-base font-semibold text-gray-900">ISO 45001:2018 Lead Auditor</p>
+                        <p class="text-sm text-gray-500 mt-0.5">Occupational Health and Safety Management Systems (OHSMS)</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Certificate No.</label>
+                            <p class="text-sm font-mono font-bold text-gray-900 bg-gray-50 px-2.5 py-1.5 rounded border border-gray-200 inline-block">ISO45001-LA-2026-58324</p>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Course Duration</label>
+                            <p class="text-sm font-semibold text-gray-800 pt-1.5">40 Hours (5 Days)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 md:border-l md:border-gray-100 md:pl-6">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 border-b pb-2">Issuance & Accreditation</h2>
+
+                    <div>
+                        <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Authorized Training Provider</label>
+                        <p class="text-base font-semibold text-gray-900">International Safety Training Academy</p>
+                    </div>
+
+                    <div>
+                        <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Accredited Scheme</label>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span class="text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-1 rounded">CQI | IRCA</span>
+                            <span class="text-xs text-gray-500 font-medium">Certified Course</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Issue Date</label>
+                            <p class="text-sm font-semibold text-gray-800">05/05/2026</p>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-1">Accredited By</label>
+                            <p class="text-xs font-bold text-gray-700 tracking-tight uppercase">UKAS Accreditation Service</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-slate-50 p-4 px-6 flex items-start gap-3">
+                <svg class="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                    <strong>Security Notice:</strong> This digital record serves as a real-time validation of the achievement specified above. Any modification or unauthorized reproduction of this page's content is strictly prohibited and invalidates the credential.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="w-full text-center py-4 bg-white border-t border-gray-100 text-xs text-gray-400">
+        <p>&copy; 2026 Global Verification Directory System. All Professional Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
