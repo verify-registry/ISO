@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Credential Verification</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -90,9 +92,11 @@
 </head>
 <body class="antialiased w-full min-h-screen overflow-x-hidden lg:h-screen lg:overflow-hidden flex flex-col lg:flex-row perspective-1000">
 
+    <!-- Left Side: Hero (3D Dark Panel) -->
     <div class="relative w-full lg:w-5/12 bg-premium-3d flex flex-col justify-between p-6 sm:p-8 lg:p-8 xl:p-12 z-20 shadow-[25px_0_50px_rgba(0,0,0,0.4)] lg:h-full overflow-hidden">
         
-        <img src="https://verify-registry.github.io/ISO/4.png" alt="Watermark" class="absolute -right-16 top-1/4 w-[130%] opacity-[0.03] transform -rotate-12 pointer-events-none mix-blend-overlay">
+        <!-- العلامة المائية هنا زودنا شفافيتها (opacity-[0.15]) عشان تظهر أقوى -->
+        <img src="https://verify-registry.github.io/ISO/4.png" alt="Watermark" class="absolute -right-16 top-1/4 w-[130%] opacity-[0.15] transform -rotate-12 pointer-events-none mix-blend-overlay">
         
         <div class="relative z-10 flex items-center gap-3 animate-fade-in">
             <div class="p-2 rounded-xl glass-dark">
@@ -118,6 +122,7 @@
             <p class="text-sm sm:text-lg lg:text-base xl:text-xl text-emerald-100/90 font-medium tracking-wide drop-shadow-md">
                 Lead Auditor Certification
             </p>
+            <!-- خط الإضاءة الذهبي -->
             <div class="w-12 h-1 bg-[#d4af37] rounded-full mt-4 mb-3 opacity-90 shadow-[0_0_15px_rgba(212,175,55,0.7)]"></div>
             <p class="text-[10px] sm:text-xs text-gray-300/70 max-w-xs leading-relaxed hidden lg:block">
                 Occupational Health and Safety Management Systems (OHSMS)
@@ -130,8 +135,10 @@
         </div>
     </div>
 
+    <!-- Right Side: Candidate Data -->
     <div class="w-full lg:w-7/12 bg-transparent p-4 sm:p-6 lg:px-10 lg:py-8 flex flex-col justify-center lg:h-full relative overflow-hidden">
         
+        <!-- تأثير الإضاءة البيضاء 3D في الخلفية -->
         <div class="absolute -right-20 -top-20 w-96 h-96 bg-white/60 rounded-full blur-[80px] pointer-events-none"></div>
 
         <div class="max-w-3xl w-full mx-auto flex flex-col justify-center h-full relative z-10 animate-fade-in" style="animation-delay: 0.2s;">
@@ -141,6 +148,7 @@
                 Authentication Details
             </h2>
 
+            <!-- Candidate Name -->
             <div class="card-3d rounded-2xl p-5 lg:p-5 xl:p-6 mb-5 lg:mb-6">
                 <label class="text-[9px] uppercase tracking-widest text-gray-400 font-bold block mb-1">Candidate Full Name</label>
                 <div class="text-xl sm:text-2xl lg:text-2xl xl:text-3xl font-extrabold text-[#082117] tracking-tight">
@@ -148,6 +156,7 @@
                 </div>
             </div>
 
+            <!-- Mobile View: Unified Ticket -->
             <div class="ticket-3d mb-6 lg:hidden">
                 <div class="p-4 bg-white/80 backdrop-blur-md flex flex-col sm:flex-row sm:items-center justify-between gap-2 relative">
                     <div class="absolute bottom-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
@@ -176,6 +185,7 @@
                 </div>
             </div>
 
+            <!-- Laptop View: Grid Cards -->
             <div class="hidden lg:grid grid-cols-2 gap-4 xl:gap-6 mb-6">
                 <div class="card-3d rounded-2xl p-5 relative overflow-hidden">
                     <div class="absolute right-0 top-0 w-16 h-16 bg-emerald-50 rounded-bl-full z-0 opacity-60"></div>
@@ -204,16 +214,20 @@
                 </div>
             </div>
 
+            <!-- Trust & Accreditation Logos (Transparent Glass Pill & Removed Logo 4) -->
             <div class="pt-4 lg:pt-5 border-t border-gray-300/40">
                 <label class="text-[8px] sm:text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-4 text-center lg:text-left drop-shadow-sm">Accredited & Recognized By</label>
                 
+                <!-- حاوية زجاجية شفافة فخمة مجمعة الأيقونات بشكل مثالي -->
                 <div class="glass-pill inline-flex items-center justify-center gap-6 sm:gap-10 px-6 sm:px-8 py-3 sm:py-4 rounded-full mx-auto lg:mx-0 w-full sm:w-auto transition-all duration-300 hover:shadow-lg hover:bg-white/30">
                     <img src="https://verify-registry.github.io/ISO/2.png" class="h-8 sm:h-10 lg:h-11 object-contain drop-shadow-md hover:scale-110 hover:drop-shadow-xl transition-all duration-300" alt="CQI IRCA">
                     
+                    <!-- فاصل زجاجي خفيف بين الأيقونات -->
                     <div class="w-px h-8 bg-gray-400/30"></div>
                     
                     <img src="https://verify-registry.github.io/ISO/1.png" class="h-8 sm:h-10 lg:h-11 object-contain drop-shadow-md hover:scale-110 hover:drop-shadow-xl transition-all duration-300" alt="ISO">
                     
+                    <!-- فاصل زجاجي خفيف بين الأيقونات -->
                     <div class="w-px h-8 bg-gray-400/30"></div>
                     
                     <img src="https://verify-registry.github.io/ISO/3.png" class="h-8 sm:h-10 lg:h-11 object-contain drop-shadow-md hover:scale-110 hover:drop-shadow-xl transition-all duration-300" alt="SNR">
