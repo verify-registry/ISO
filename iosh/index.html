@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC Web | Home</title>
+    <style>
+        /* Typography - Extracted from MHT context */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* CSS Variables for precise color and theme management */
+        :root {
+            --primary-color: #005baa; /* Standard institutional blue */
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #e2e8f0;
+            --success-bg: #e6f4ea;
+            --success-text: #1e7e34;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header Layout */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            /* Replace the background URL with your actual Base64 string */
+            width: 150px;
+            height: 50px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        /* Main Container & Grid */
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .verification-header {
+            margin-bottom: 24px;
+        }
+
+        .verification-header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .timestamp {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* Card UI */
+        .verification-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .status-badge svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 6px;
+            fill: currentColor;
+        }
+
+        /* Responsive Data Layout */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .data-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .data-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .data-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            word-wrap: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            text-align: center;
+            padding: 24px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .data-grid {
+                grid-template-columns: 1fr; /* Vertical stacking on mobile */
+                gap: 16px;
+            }
+            
+            .verification-card {
+                padding: 20px;
+            }
+
+            main {
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-placeholder">LOGO Base64 Here</div>
+    </header>
+
+    <main>
+        <div class="verification-header">
+            <h1>Certificate Verification</h1>
+            <div class="timestamp">Requested on: <span id="real-time-requested"></span></div>
+        </div>
+
+        <div class="verification-card">
+            <div class="status-badge">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                Valid Certificate
+            </div>
+
+            <div class="data-grid">
+                <div class="data-item">
+                    <span class="data-label">Reference Number</span>
+                    <span class="data-value">16747292-01-XFRO</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Learner Name</span>
+                    <span class="data-value">John Doe</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Qualification</span>
+                    <span class="data-value">Managing Safely</span>
+                </div>
+                <div class="data-item">
+                    <span class="data-label">Date Achieved</span>
+                    <span class="data-value">17 Jun 2026</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; <span id="year"></span> DC Web Verification. All rights reserved.
+    </footer>
+
+    <script>
+        // Feature: Dynamic real-time "Requested" timestamp updating exactly to access time
+        function updateRequestedTime() {
+            const now = new Date();
+            
+            // Formatting to match standard UK/International display (e.g., 17 Jun 2026, 18:22:41)
+            const day = String(now.getDate()).padStart(2, '0');
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const month = monthNames[now.getMonth()];
+            const year = now.getFullYear();
+            
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const formattedTime = `${day} ${month} ${year}, ${hours}:${minutes}:${seconds}`;
+            
+            const timeElement = document.getElementById('real-time-requested');
+            if(timeElement) {
+                timeElement.textContent = formattedTime;
+            }
+        }
+
+        // Feature: Auto-updating copyright year
+        function updateFooterYear() {
+            const yearElement = document.getElementById('year');
+            if(yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        }
+
+        // Initialize scripts on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateRequestedTime();
+            updateFooterYear();
+        });
+    </script>
+</body>
+</html>
