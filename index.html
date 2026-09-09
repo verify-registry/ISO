@@ -4,25 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Credential Validation | Proton Academy Registry</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
     
     <style>
-        body { background: radial-gradient(circle at center, #f8fafc 0%, #cbd5e1 100%); font-family: 'Inter', sans-serif; }
-        .font-heading { font-family: 'Montserrat', sans-serif; }
-        .bg-premium-3d { background: radial-gradient(circle at top left, #124d38 0%, #061710 100%); box-shadow: inset -15px 0 40px rgba(0,0,0,0.6); }
-        .card-3d { background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%); border-top: 2px solid rgba(255,255,255,1); border-left: 2px solid rgba(255,255,255,0.9); border-bottom: 1px solid rgba(200,210,220,0.3); border-right: 1px solid rgba(200,210,220,0.3); box-shadow: 8px 8px 20px rgba(148, 163, 184, 0.4), -8px -8px 20px rgba(255, 255, 255, 0.9); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .card-3d:hover { transform: translateY(-4px) scale(1.02); box-shadow: 12px 12px 25px rgba(148, 163, 184, 0.5), -12px -12px 25px rgba(255, 255, 255, 1); }
-        .ticket-3d { background: linear-gradient(145deg, #ffffff, #f8fafc); border-radius: 1.5rem; border-top: 2px solid #fff; border-left: 2px solid #fff; box-shadow: 0 15px 35px -5px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.02); overflow: hidden; position: relative; }
-        .glass-pill { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); border-top: 1px solid rgba(255, 255, 255, 0.8); border-left: 1px solid rgba(255, 255, 255, 0.6); border-bottom: 1px solid rgba(255, 255, 255, 0.1); border-right: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); }
-        .glass-dark { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3); }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0px); } }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translate3d(0, 15px, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
-        .animate-fade-in { animation: fadeInUp 0.6s ease-out forwards; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            /* خلفية متدرجة بتدي إيحاء باستوديو إضاءة 3D */
+            background: radial-gradient(circle at center, #f8fafc 0%, #cbd5e1 100%);
+        }
+        .font-heading { 
+            font-family: 'Montserrat', sans-serif; 
+        }
+        .bg-premium-3d { 
+            background: radial-gradient(circle at top left, #124d38 0%, #061710 100%);
+            box-shadow: inset -15px 0 40px rgba(0,0,0,0.6); 
+        }
+        
+        /* كروت 3D بفخامة أعلى وإضاءة بارزة */
+        .card-3d {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border-top: 2px solid rgba(255,255,255,1);
+            border-left: 2px solid rgba(255,255,255,0.9);
+            border-bottom: 1px solid rgba(200,210,220,0.3);
+            border-right: 1px solid rgba(200,210,220,0.3);
+            box-shadow: 
+                8px 8px 20px rgba(148, 163, 184, 0.4), 
+                -8px -8px 20px rgba(255, 255, 255, 0.9);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-3d:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 
+                12px 12px 25px rgba(148, 163, 184, 0.5), 
+                -12px -12px 25px rgba(255, 255, 255, 1);
+        }
+
+        /* كارت الموبايل الموحد */
+        .ticket-3d {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-radius: 1.5rem;
+            border-top: 2px solid #fff;
+            border-left: 2px solid #fff;
+            box-shadow: 0 15px 35px -5px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.02);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* حاوية زجاجية للأيقونات شفافة وفخمة */
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.6);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        /* زجاج غامق للوحة الشمال */
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translate3d(0, 15px, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
         /* شاشة التحميل */
-        #loader { position: fixed; inset: 0; background: #f8fafc; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.5s; }
-        #error-msg { display: none; color: #dc2626; text-align: center; font-weight: bold; padding: 2rem; }
+        #loader { 
+            position: fixed; inset: 0; background: #f8fafc; z-index: 9999; 
+            display: flex; justify-content: center; align-items: center; transition: opacity 0.5s; 
+        }
+        #error-msg { display: none; flex-direction: column; align-items: center; justify-content: center; height: 100vh; position: fixed; inset: 0; background: #fff; z-index: 9998; }
     </style>
 </head>
 <body class="antialiased w-full min-h-screen overflow-x-hidden lg:h-screen lg:overflow-hidden flex flex-col lg:flex-row perspective-1000">
@@ -33,7 +105,7 @@
     </div>
 
     <!-- Error Screen (يظهر لو الرابط غلط) -->
-    <div id="error-msg" class="w-full h-screen flex flex-col items-center justify-center bg-white absolute z-50">
+    <div id="error-msg">
         <svg class="w-16 h-16 text-red-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
         <h2 class="text-2xl font-bold text-gray-800">Credential Not Found</h2>
         <p class="text-gray-500 mt-2">The requested ID does not exist in our registry.</p>
@@ -41,9 +113,11 @@
 
     <!-- المحتوى الرئيسي (مخفي لحد ما البيانات تحمل) -->
     <div id="main-content" class="w-full h-full flex flex-col lg:flex-row opacity-0 transition-opacity duration-500 hidden">
-        
+
         <!-- Left Side: Hero (3D Dark Panel) -->
         <div class="relative w-full lg:w-5/12 bg-premium-3d flex flex-col justify-between p-6 sm:p-8 lg:p-8 xl:p-12 z-20 shadow-[25px_0_50px_rgba(0,0,0,0.4)] lg:h-full overflow-hidden">
+            
+            <!-- العلامة المائية الشفافة بقوة -->
             <img src="https://verify-registry.github.io/ISO/4.png" alt="Watermark" class="absolute -right-16 top-1/4 w-[130%] opacity-[0.15] transform -rotate-12 pointer-events-none mix-blend-overlay">
             
             <div class="relative z-10 flex items-center gap-3 animate-fade-in">
@@ -70,6 +144,7 @@
                 <p class="text-sm sm:text-lg lg:text-base xl:text-xl text-emerald-100/90 font-medium tracking-wide drop-shadow-md">
                     Lead Auditor Certification
                 </p>
+                <!-- خط الإضاءة الذهبي -->
                 <div class="w-12 h-1 bg-[#d4af37] rounded-full mt-4 mb-3 opacity-90 shadow-[0_0_15px_rgba(212,175,55,0.7)]"></div>
                 <p class="text-[10px] sm:text-xs text-gray-300/70 max-w-xs leading-relaxed hidden lg:block">
                     Occupational Health and Safety Management Systems (OHSMS)
@@ -84,6 +159,8 @@
 
         <!-- Right Side: Candidate Data -->
         <div class="w-full lg:w-7/12 bg-transparent p-4 sm:p-6 lg:px-10 lg:py-8 flex flex-col justify-center lg:h-full relative overflow-hidden">
+            
+            <!-- تأثير الإضاءة البيضاء 3D في الخلفية -->
             <div class="absolute -right-20 -top-20 w-96 h-96 bg-white/60 rounded-full blur-[80px] pointer-events-none"></div>
 
             <div class="max-w-3xl w-full mx-auto flex flex-col justify-center h-full relative z-10 animate-fade-in" style="animation-delay: 0.2s;">
@@ -158,14 +235,20 @@
                     </div>
                 </div>
 
-                <!-- Logos -->
+                <!-- Trust & Accreditation Logos (Transparent Glass Pill & v=2 for Cache Busting) -->
                 <div class="pt-4 lg:pt-5 border-t border-gray-300/40">
                     <label class="text-[8px] sm:text-[9px] uppercase tracking-widest text-gray-500 font-bold block mb-4 text-center lg:text-left drop-shadow-sm">Recognized & Accredited Authorities</label>
+                    
                     <div class="glass-pill inline-flex items-center justify-center gap-6 sm:gap-10 px-6 sm:px-8 py-3 sm:py-4 rounded-full mx-auto lg:mx-0 w-full sm:w-auto transition-all duration-300 hover:shadow-lg hover:bg-white/30">
+                        
                         <img src="https://verify-registry.github.io/ISO/2.png?v=2" class="h-8 sm:h-10 lg:h-11 object-contain drop-shadow-md hover:scale-110 hover:drop-shadow-xl transition-all duration-300" alt="CQI IRCA">
+                        
                         <div class="w-px h-8 bg-gray-400/30"></div>
+                        
                         <img src="https://verify-registry.github.io/ISO/1.png?v=2" class="h-8 sm:h-10 lg:h-11 object-contain drop-shadow-md hover:scale-110 hover:drop-shadow-xl transition-all duration-300" alt="ISO">
+                        
                         <div class="w-px h-8 bg-gray-400/30"></div>
+                        
                         <img src="https://verify-registry.github.io/ISO/3.png?v=2" class="h-8 sm:h-10 lg:h-11 object-contain drop-shadow-md hover:scale-110 hover:drop-shadow-xl transition-all duration-300" alt="SNR">
                     </div>
                 </div>
@@ -173,16 +256,18 @@
                 <div class="text-center lg:text-left pt-6 lg:pt-8 text-[8px] sm:text-[9px] text-gray-500 font-semibold tracking-wide drop-shadow-sm">
                     &copy; 2026 Proton Academy Official Registry. All Rights Reserved.
                 </div>
+
             </div>
         </div>
     </div>
 
-    <!-- جافاسكريبت لربط البيانات -->
+    <!-- جافاسكريبت لربط البيانات وقراءة اللينك الاحترافي -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. التقاط الـ ID من الرابط (مثال: domain.com/?id=58324)
-            const urlParams = new URLSearchParams(window.location.search);
-            const studentId = urlParams.get('id');
+            // 1. التقاط الـ ID من الرابط القديم (مثال: domain.com/58324/)
+            const pathArray = window.location.pathname.split('/').filter(p => p);
+            // بناخد أول جزء في الرابط بعد الدومين، لو مفيش بنخليه null
+            const studentId = pathArray.length > 0 ? pathArray[0] : null;
 
             const loader = document.getElementById('loader');
             const mainContent = document.getElementById('main-content');
@@ -191,13 +276,16 @@
             if (!studentId) {
                 loader.style.display = 'none';
                 errorMsg.style.display = 'flex';
-                errorMsg.innerHTML = '<h2 class="text-2xl font-bold">Invalid Link</h2><p>Please provide a valid credential ID in the URL.</p>';
+                errorMsg.innerHTML = '<h2 class="text-2xl font-bold">Invalid Link</h2><p class="text-gray-500 mt-2">Please provide a valid credential ID in the URL.</p>';
                 return;
             }
 
-            // 2. سحب البيانات من ملف data.json
-            fetch('data.json')
-                .then(response => response.json())
+            // 2. سحب البيانات من ملف data.json (السلاش / مهمة جدا عشان المسار يظبط)
+            fetch('/data.json')
+                .then(response => {
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    return response.json();
+                })
                 .then(data => {
                     // البحث عن الطالب برقم الـ ID
                     const student = data.find(s => s.id === studentId);
@@ -228,7 +316,7 @@
                     console.error('Error loading data:', error);
                     loader.style.display = 'none';
                     errorMsg.style.display = 'flex';
-                    errorMsg.innerHTML = '<h2 class="text-2xl font-bold">System Error</h2><p>Unable to connect to the registry database.</p>';
+                    errorMsg.innerHTML = '<h2 class="text-2xl font-bold">System Error</h2><p class="text-gray-500 mt-2">Unable to connect to the registry database.</p>';
                 });
         });
     </script>
