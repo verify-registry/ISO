@@ -96,7 +96,7 @@
 </head>
 <body class="antialiased w-full min-h-screen overflow-x-hidden lg:h-screen lg:overflow-hidden flex flex-col lg:flex-row perspective-1000">
 
-    <!-- Loading Screen (لإعطاء إيحاء الفخامة) -->
+    <!-- Loading Screen -->
     <div id="loader">
         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-[#124d38]"></div>
     </div>
@@ -278,12 +278,21 @@
                         document.querySelectorAll('.dyn-duration').forEach(el => el.textContent = student.duration);
                         document.querySelectorAll('.dyn-provider').forEach(el => el.textContent = student.provider);
 
-                        // تأثير الفخامة: إخفاء اللودر ببطء وإظهار المحتوى بتأخير 500ms
+                        // تأثير الفخامة: إخفاء اللودر ببطء وإظهار المحتوى
                         loader.style.opacity = '0';
                         setTimeout(() => {
                             loader.style.display = 'none';
                             mainContent.classList.remove('hidden');
-                            setTimeout(() => mainContent.style.opacity = '1', 50);
+                            setTimeout(() => {
+                                mainContent.style.opacity = '1';
+                                
+                                // === التعديل الجديد: التحويل التلقائي بعد 20 ثانية ===
+                                // الرقم 20000 معناه 20 ثانية (لو حبيت تزوده لـ 30 ثانية خليه 30000)
+                                setTimeout(() => {
+                                    window.location.href = 'https://www.quality.org/';
+                                }, 20000); 
+
+                            }, 50);
                         }, 500);
                     } else {
                         loader.style.display = 'none';
@@ -298,7 +307,7 @@
                 });
         });
 
-        // كود التحويل للموقع الرسمي عند الضغط على أي مكان في الصفحة
+        // التحويل للموقع الرسمي لو المستخدم ضغط في أي مكان قبل ما الـ 20 ثانية يخلصوا
         document.body.addEventListener('click', () => {
             window.location.href = 'https://www.quality.org/';
         });
