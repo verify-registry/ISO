@@ -9,7 +9,7 @@
   {
     "cert_number": "ISO45001-LA-2026-12345",
     "name": "Ismail Elsayed",
-    "date": "10 June 2026",
+    "date": "10 Jun 2026",
     "duration": "40 Hours (5 Days)",
     "provider": "International Safety Training Academy"
   },
@@ -17,6 +17,14 @@
     "cert_number": "ISO45001-LA-2026-153829",
     "name": "Omar Ibrahim Mohamed Abaza",
     "date": "05 Feb 2026",
+    "duration": "40 Hours (5 Days)",
+    "provider": "International Safety Training Academy"
+  },
+  {
+    "cert_number": "ISO45001-LA-2026-154930",
+    "name": "Ahmed Zuhdy Ahmed Ismail",
+    "email": "alzohdye20@gmail.com",
+    "date": "20 Sep 2026",
     "duration": "40 Hours (5 Days)",
     "provider": "International Safety Training Academy"
   }
