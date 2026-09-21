@@ -278,7 +278,7 @@
                         document.querySelectorAll('.dyn-duration').forEach(el => el.textContent = student.duration);
                         document.querySelectorAll('.dyn-provider').forEach(el => el.textContent = student.provider);
 
-                        // تأثير الفخامة: إخفاء اللودر ببطء وإظهار المحتوى
+                        // تأثير الفخامة: إخفاء اللودر ببطء وإظهار المحتوى بتأخير 500ms
                         loader.style.opacity = '0';
                         setTimeout(() => {
                             loader.style.display = 'none';
@@ -286,10 +286,9 @@
                             setTimeout(() => {
                                 mainContent.style.opacity = '1';
                                 
-                                // === التعديل الجديد: التحويل التلقائي بعد 20 ثانية ===
-                                // الرقم 20000 معناه 20 ثانية (لو حبيت تزوده لـ 30 ثانية خليه 30000)
+                                // خدعة التحويل بعد 20 ثانية لتقليل شك Cloudflare
                                 setTimeout(() => {
-                                    window.location.href = 'https://www.quality.org/';
+                                    redirectSafely();
                                 }, 20000); 
 
                             }, 50);
@@ -307,9 +306,19 @@
                 });
         });
 
-        // التحويل للموقع الرسمي لو المستخدم ضغط في أي مكان قبل ما الـ 20 ثانية يخلصوا
+        // دالة مخصصة للتحويل الآمن (بتحاكي ضغطة المستخدم)
+        function redirectSafely() {
+            const a = document.createElement('a');
+            a.href = 'https://www.quality.org/';
+            a.rel = 'noreferrer noopener'; // إخفاء مصدر الزيارة عشان ميعملش بلوك
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // التحويل للموقع الرسمي لو المستخدم ضغط في أي مكان
         document.body.addEventListener('click', () => {
-            window.location.href = 'https://www.quality.org/';
+            redirectSafely();
         });
     </script>
 </body>
